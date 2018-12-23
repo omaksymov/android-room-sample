@@ -1,6 +1,9 @@
 package sample.architecture_components;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,9 +14,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import sample.architecture_components.adapter.WordListAdapter;
+import sample.architecture_components.entities.Word;
+import sample.architecture_components.viewmodel.WordViewModel;
 
 public class MainActivity extends AppCompatActivity {
+    private WordViewModel wordViewModel;
+    private WordListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +41,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setAdapter(new WordListAdapter(this));
+        adapter = new WordListAdapter(this);
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        wordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
+        wordViewModel.getAllWords().observe(this, new Observer<List<Word>>() {
+            @Override
+            public void onChanged(@Nullable List<Word> words) {
+                // Update the cached copy of the words in the adapter.
+                adapter.setWords(words);
+            }
+        });
     }
 
     @Override
