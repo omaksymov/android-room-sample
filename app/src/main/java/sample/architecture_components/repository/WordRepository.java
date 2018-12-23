@@ -6,9 +6,9 @@ import android.os.AsyncTask;
 
 import java.util.List;
 
-import sample.architecture_components.dao.WordDao;
-import sample.architecture_components.database.WordRoomDatabase;
-import sample.architecture_components.entities.Word;
+import sample.architecture_components.persistence.WordDao;
+import sample.architecture_components.persistence.WordRoomDatabase;
+import sample.architecture_components.persistence.Word;
 
 public class WordRepository {
     private WordDao wordDao;

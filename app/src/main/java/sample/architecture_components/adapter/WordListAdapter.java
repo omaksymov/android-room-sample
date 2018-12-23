@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import sample.architecture_components.R;
-import sample.architecture_components.entities.Word;
+import sample.architecture_components.persistence.Word;
 
 public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
     private LayoutInflater layoutInflater;

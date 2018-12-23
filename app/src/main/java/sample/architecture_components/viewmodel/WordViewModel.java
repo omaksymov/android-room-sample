@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
-import sample.architecture_components.entities.Word;
+import sample.architecture_components.persistence.Word;
 import sample.architecture_components.repository.WordRepository;
 
 public class WordViewModel extends AndroidViewModel {

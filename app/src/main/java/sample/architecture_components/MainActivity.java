@@ -19,7 +19,7 @@ import android.view.MenuItem;
 import java.util.List;
 
 import sample.architecture_components.adapter.WordListAdapter;
-import sample.architecture_components.entities.Word;
+import sample.architecture_components.persistence.Word;
 import sample.architecture_components.viewmodel.WordViewModel;
 
 public class MainActivity extends AppCompatActivity {

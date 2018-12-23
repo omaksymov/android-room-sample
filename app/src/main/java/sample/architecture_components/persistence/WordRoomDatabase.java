@@ -1,4 +1,4 @@
-package sample.architecture_components.database;
+package sample.architecture_components.persistence;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
@@ -7,9 +7,6 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
-
-import sample.architecture_components.dao.WordDao;
-import sample.architecture_components.entities.Word;
 
 @Database(entities = {Word.class}, version = 1)
 public abstract class WordRoomDatabase extends RoomDatabase {

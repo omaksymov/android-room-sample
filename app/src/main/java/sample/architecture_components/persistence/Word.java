@@ -1,4 +1,4 @@
-package sample.architecture_components.entities;
+package sample.architecture_components.persistence;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
