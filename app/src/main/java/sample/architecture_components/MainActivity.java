@@ -2,6 +2,7 @@ package sample.architecture_components;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +23,8 @@ import sample.architecture_components.entities.Word;
 import sample.architecture_components.viewmodel.WordViewModel;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+
     private WordViewModel wordViewModel;
     private WordListAdapter adapter;
 
@@ -35,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "TODO", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, NewWordActivity.class);
+                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
             }
         });
 
@@ -75,5 +79,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                String word = data.getStringExtra(NewWordActivity.EXTRA_REPLY);
+                if (!TextUtils.isEmpty(word)) {
+                    wordViewModel.insert(new Word(word));
+                }
+                Snackbar.make(findViewById(R.id.fab), R.string.word_saved, Snackbar.LENGTH_SHORT)
+                        .show();
+            } else {
+                Snackbar.make(findViewById(R.id.fab), R.string.empty_not_saved, Snackbar.LENGTH_LONG)
+                        .show();
+            }
+        }
     }
 }
