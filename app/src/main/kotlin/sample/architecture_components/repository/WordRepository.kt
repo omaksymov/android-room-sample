@@ -1,7 +1,7 @@
 package sample.architecture_components.repository
 
-import android.arch.lifecycle.LiveData
-import android.support.annotation.WorkerThread
+import androidx.annotation.WorkerThread
+import androidx.lifecycle.LiveData
 import sample.architecture_components.persistence.Word
 import sample.architecture_components.persistence.WordDao
 
