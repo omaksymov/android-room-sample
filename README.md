@@ -5,5 +5,5 @@ Code with own implementation according to Google Codelab
 - [Kotlin](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin)
 
 Sample application using some of [Architecture components](https://developer.android.com/topic/libraries/architecture/), such as Room, LiveData, ViewModel.
-- Java code is on master branch
-- Kotlin code is on kotlin branch
+- Java code is on [master](https://github.com/omaksymov/android-room-sample/tree/master) branch
+- Kotlin code is on [kotlin](https://github.com/omaksymov/android-room-sample/tree/kotlin) branch
