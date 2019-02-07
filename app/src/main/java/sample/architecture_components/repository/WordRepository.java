@@ -1,11 +1,11 @@
 package sample.architecture_components.repository;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
 import sample.architecture_components.persistence.WordDao;
 import sample.architecture_components.persistence.WordRoomDatabase;
 import sample.architecture_components.persistence.Word;

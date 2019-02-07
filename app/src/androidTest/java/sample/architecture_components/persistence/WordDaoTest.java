@@ -1,11 +1,6 @@
 package sample.architecture_components.persistence;
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule;
-
-import android.arch.persistence.room.Room;
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,6 +10,11 @@ import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
+import androidx.room.Room;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;

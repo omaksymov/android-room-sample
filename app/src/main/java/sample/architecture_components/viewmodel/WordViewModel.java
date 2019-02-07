@@ -1,12 +1,12 @@
 package sample.architecture_components.viewmodel;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
-import android.support.annotation.NonNull;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import sample.architecture_components.persistence.Word;
 import sample.architecture_components.repository.WordRepository;
 
